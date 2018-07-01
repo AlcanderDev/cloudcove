@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="{{STATIC_URL}}blog.css" rel="stylesheet" type="text/css">
+  </head> 
+  <body>
+    <h1>CloudCove Test User Page</h1>
+    <form method="post" action="http://127.0.0.1:8000/">
+      {% csrf_token %}
+      <ul>
+        <li>
+          <input type="text" name="username" placeholder="Username" required>
+          <input type="text" name="password" placeholder="Password" required>
+        </li>
+        <li>
+          <textarea name="address" placeholder="Enter Content" rows=5 cols=50 required>
+          </textarea>
+        </li>
+        <li>
+          <input type="submit" value="Add Post">
+        </li>
+      </ul>
+    </form>
+<!-- Cycle through entries -->
+    {% for UserDetails in UserDetails %}
+      <h2> {{ UserDetails.username }} </h2>
+      <p>{{ UserDetails.last_update }}</p>
+      <p>{{ UserDetails.address }}</p>
+      <form method="get" action="http://127.0.0.1:8000/update">
+        <input type="hidden" name="id" value="{{ UserDetails.id }}">
+        <input type="hidden" name="username" value="{{ UserDetails.username }}">
+        <input type="hidden" name="last_update" value="{{ UserDetails.last_update }}">
+        <input type="hidden" name="address" value="{{ UserDetails.address }}">
+        <input type="submit" name="" value="update">
+      </form>
+      <form method="get" action="http://127.0.0.1:8000/delete">
+        <input type="hidden" name="id" value="{{UserDetails.id}}">
+        <input type="submit" value="delete">
+      </form>
+    {% endfor %}
+  </body>
+</html>
