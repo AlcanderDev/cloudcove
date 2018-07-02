@@ -1,0 +1,13 @@
+.navbar-brand {
+  font-family: 'Peralta', cursive;
+}
+
+body {
+    background-color: rgba(40,40,40,1)
+}
+
+.password-changed-center{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
