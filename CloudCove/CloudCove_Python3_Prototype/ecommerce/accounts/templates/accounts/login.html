@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Log in to Good Look{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    {% include 'shop/navbar.html' %}
+    {% block content %}
+    <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6 col-sm-8">
+            <div class="card" style="background-color:#FFFFFF">
+                <div class="card-body">
+                    <h3 class="card-title" style="color:white">Log in</h3>
+                    <form method="post" novalidate>
+                        {% csrf_token %}
+                        {% include 'accounts/includes/form.html' %}
+                    <button type="submit" class="btn btn-primary btn-block">Log in</button>
+                    </form>
+                </div>
+                <div class="card-footer text-muted text-center">
+                    New to Cloud Cove? <a href="{% url 'accounts:signup' %}">Sign up</a>
+                </div>
+            </div>
+            <div class="text-center py-2">
+                <small>
+                    <a href="#" class="text-muted">Forgot your password?</a>
+                </small>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+<script src="{% static 'js/jquery.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/bootstrap.min.js' %}" type="text/javascript"></script>
+</body>
+</html>
