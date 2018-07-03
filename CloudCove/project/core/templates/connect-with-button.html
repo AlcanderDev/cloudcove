@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="good-look-logo-div" align="center">
+        <img src="{% static 'img/good_look_logo.png' %}" alt="Brand Image" width="25%" height="25%"/>
+        <p style="color:white;">The button would need to connect to your phone via WiFi</p>
+        <p style="color:white;">Kindly connect to your button from your phone's WiFi setting</p>
+        <div class="col-lg-6 col-md-8 col-sm-10">
+            <form action="192.168.1.1/config" method="post" novalidate >
+                <form action="/get_auth_token" method="post"></form>
+                {% csrf_token %}
+                {% include 'includes/form.html' %}
+                <button type="submit" class="btn">Connect Me Now</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+.navbar-brand {
+  font-family: 'Peralta', cursive;
+}
+
+body {
+    background-color: rgba(40,40,40,1)
+}
+
+.password-changed-center{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.set-button-ap-mode-donebtn{
+    background-color: transparent; /* Green */
+    border: none;
+    background-image: url('../img/done_button.png');
+    background-repeat: no-repeat;
+    font-weight: bold;
+    color: black;
+    padding: 16px 46px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}

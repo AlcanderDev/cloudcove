@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="good-look-logo-div" align="center">
+        <p style="font-size:32px; color:white;" >Setting Button into AP Mode</p>
+        
+        <img src="{% static 'img/button_ap_mode.png' %}" style="padding: 70px 70px"alt="button_ap_mode Image" width="25%" height="25%"/>
+        
+        <div style="font-size:24px; color:white;">
+            <p>Activate your device by pressing and holding the diagonal button.</p>
+            <p>When activated, flashing blue LEDs will be light up<br></br></p>
+        </div>
+            <form method="post" novalidate >
+                {% csrf_token %}
+                    <button type="submit" class="set-button-ap-mode-donebtn">Done</button>
+            </form>
+        
+    </div>
+{% endblock %}
