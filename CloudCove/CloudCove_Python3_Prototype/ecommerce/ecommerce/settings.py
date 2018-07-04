@@ -83,10 +83,10 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 DATABASES = {
     'default': {
 #        Uncomment these to
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'ENGINE': 'djongo',
-        'NAME': 'CloudCoveDB',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#        'ENGINE': 'djongo',
+#        'NAME': 'CloudCoveDB',
     }
 }
 

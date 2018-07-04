@@ -20,7 +20,7 @@ def unique_order_id_generator(instance):
 
 
 class Order(models.Model):
-    order_id = models.CharField(max_length=120, blank= True)
+    order_id = models.SlugField(max_length=100, db_index=True)
     first_name = models.CharField(max_length=60)
     last_name = models.CharField(max_length=60)
     email = models.EmailField()
@@ -33,12 +33,15 @@ class Order(models.Model):
 
     class Meta:
         ordering = ('-created', )
+        
 
     def __str__(self):
         return 'Order {}'.format(self.order_id)
 
     def get_total_cost(self):
         return sum(item.get_cost() for item in self.items.all())
+        
+
         
 def pre_save_create_order_id(sender, instance, *args, **kwargs):
     if not instance.order_id:

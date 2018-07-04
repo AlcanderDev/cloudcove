@@ -31,6 +31,12 @@ class Cart(object):
             del self.cart[product_id]
             self.save()
 
+    def removeall(self):
+        product_ids = self.cart.keys()
+        products = Product.objects.filter(id__in=product_ids)
+        for product in products:
+            self.remove(product)
+            
     def __iter__(self):
         product_ids = self.cart.keys()
         products = Product.objects.filter(id__in=product_ids)
