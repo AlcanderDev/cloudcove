@@ -106,3 +106,4 @@ def order_button_api(request, order_id):
                 quantity=item['quantity']
             )
         cart.clear()
+        return HttpResponse("Order placed")
