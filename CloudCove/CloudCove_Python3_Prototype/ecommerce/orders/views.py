@@ -74,3 +74,35 @@ def order_reorder(request, order_id):
         )
     cart.clear()
     return render(request, 'orders/order/created.html', {'order': neworder})
+
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
+@csrf_exempt
+def order_button_api(request, order_id):
+    if request.method == 'GET':
+        text = """<h1>Your order id is </h1>""" + order_id
+        return HttpResponse(text)
+    if request.method == 'POST':
+        cart = Cart(request)
+        cart.removeall()
+        order = get_object_or_404(Order, order_id=order_id)
+        orderitems = get_list_or_404(OrderItem, order_id=order.id)
+        for orderitem in orderitems:
+            cart.add(orderitem.product, orderitem.quantity)
+        cart.save()
+        neworder=Order()
+        neworder.first_name = order.first_name
+        neworder.last_name = order.last_name
+        neworder.email = order.email
+        neworder.address = order.address
+        neworder.postal_code = order.postal_code
+        neworder.city = order.city
+        neworder.save()
+        for item in cart:
+            OrderItem.objects.create(
+                order=neworder,
+                product=item['product'],
+                price=item['price'],
+                quantity=item['quantity']
+            )
+        cart.clear()
