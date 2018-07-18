@@ -26,6 +26,15 @@
                                 {{ cart_product_form }}
                                 <input type="submit" value="add to cart" class="btn btn-primary">
                             </form>
+                            <br>
+                                <form action="http://127.0.0.1:8001/registerbutton1">
+                                <input type="hidden" name="orderid" value="{{ product.id }}">
+                                <input type="submit" value="btn1" class="btn btn-primary" />
+                                <input type="submit" value="btn2" class="btn btn-primary" />
+                                <input type="submit" value="btn3" class="btn btn-primary" />
+                                <input type="submit" value="btn4" class="btn btn-primary" />
+                            </form>
+                            </br>
                             <p>{{ product.description|safe|linebreaksbr }}</p>
                         </div>
                     </div>

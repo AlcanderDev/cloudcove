@@ -11,6 +11,30 @@
                 <h3 class="page-header">Thank You For Shopping With Us
                 </h3>
                 <p>Your order has been successfully completed. Your order number is <strong>{{ order.order_id }}</strong>.</p>
+                <div class="container">
+                    <div class="row">
+                        <form method="post" novalidate target="_blank" action="http://127.0.0.1:8000/orders/registerbutton1/{{ order.order_id }}/">
+                            <button type="submit" class="btn btn-primary" name="btn1" value="btn1">Button 1</button>
+                        </form>
+                        <form method="post" novalidate target="_blank" action="http://127.0.0.1:8000/orders/registerbutton2/{{ order.order_id }}/">
+                            <button type="submit" class="btn btn-primary" name="btn2" value="btn2">Button 2</button>
+                        </form>
+                        <form method="post" novalidate target="_blank" action="http://127.0.0.1:8000/orders/registerbutton3/{{ order.order_id }}/">
+                            <button type="submit" class="btn btn-primary" name="btn3" value="btn3">Button 3</button>
+                        </form>
+                        <form method="post" novalidate target="_blank" action="http://127.0.0.1:8000/orders/registerbutton4/{{ order.order_id }}/">
+                            <button type="submit" class="btn btn-primary" name="btn4" value="btn4">Button 4</button>
+                        </form>
+                    </div>
+                </div>
+                <!--
+                <form action="http://127.0.0.1:8001/registerbutton1/{{ order.order_id }}/" method="post">
+                    <input type="submit" value="btn1" class="btn btn-primary" />
+                    <input type="submit" value="btn2" class="btn btn-primary" />
+                    <input type="submit" value="btn3" class="btn btn-primary" />
+                    <input type="submit" value="btn4" class="btn btn-primary" />
+                </form>
+                -->
             </div>
         </div>
     </div>

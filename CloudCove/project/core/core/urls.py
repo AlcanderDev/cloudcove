@@ -22,6 +22,11 @@ from brandbutton import views
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
+    url('admin/', admin.site.urls),
+    url(r'^registerbutton1/(?P<username>[-\w]+)/(?P<orderid>[-\w]+)/$', views.registerbutton1, name='registerbutton1'),
+    url(r'^registerbutton2/(?P<username>[-\w]+)/(?P<orderid>[-\w]+)/$', views.registerbutton2, name='registerbutton2'),
+    url(r'^registerbutton3/(?P<username>[-\w]+)/(?P<orderid>[-\w]+)/$', views.registerbutton3, name='registerbutton3'),
+    url(r'^registerbutton4/(?P<username>[-\w]+)/(?P<orderid>[-\w]+)/$', views.registerbutton4, name='registerbutton4'),
     url(r'^connectbutton/$', views.connectbutton, name='connectbutton'),
     url(r'^set-button-ap-mode/$', views.setbuttonapmode, name='set-button-ap-mode'),
     url(r'^connect-with-button/$', views.connectwithbutton, name='connect-with-button'),

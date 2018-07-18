@@ -8,14 +8,18 @@
     <div class="good-look-logo-div" align="center">
         <img src="{% static 'img/good_look_logo.png' %}" alt="Brand Image" width="25%" height="25%"/>
         <p style="color:white;">Order and replenish your favourite Good Look hair products at the press of a button, in the comfort of your home.</p>
-        <div class="col-lg-6 col-md-8 col-sm-10">
-            <form method="post" novalidate >
-                {% csrf_token %}
-                {% include 'includes/form.html' %}
-                <button type="submit" class="btn">Configure Button 1</button>
-                <button type="submit" class="btn">Configure Button 2</button>
-                <button type="submit" class="btn">Configure Button 3</button>
-                <button type="submit" class="btn">Configure Button 4</button>
+        <div class="button-row">
+            <form action="http://127.0.0.1:8000/orders/reorder/{{ user.button1Order }}/" method="get" target="_blank">
+                <input type="submit" value="Button 1" class="btn1" />
+            </form>
+            <form action="http://127.0.0.1:8000/orders/reorder/{{ user.button2Order }}/" method="get" target="_blank">
+                <input type="submit" value="Button 2" class="btn2" />
+            </form>
+            <form action="http://127.0.0.1:8000/orders/reorder/{{ user.button3Order }}/" method="get" target="_blank">
+                <input type="submit" value="Button 3" class="btn3" />
+            </form>
+            <form action="http://127.0.0.1:8000/orders/reorder/{{ user.button4Order }}/" method="get" target="_blank">
+                <input type="submit" value="Button 4" class="btn4" />
             </form>
         </div>
     </div>
